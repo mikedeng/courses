@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>计算盒子模型的尺寸</title>
+<style type="text/css">
+/*并集设置网页中有默认padding和margin的元素均为0，解决浏览器兼容性问题*/
+body, div, ul, li {
+	margin:0;
+	padding:0;
+}
+.box {
+	background-color:#9CF;
+	margin-top:10px;
+}
+.box div {
+	width:300px;
+	height:260px;
+	border:5px #F00 solid;
+	background-color:#FFF;
+	margin:0 auto;   /*居中显示*/
+}
+.box .first {
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;   /*Firefox*/
+	-webkit-box-sizing:border-box;  /*Ssfari*/
+	padding:20px;
+}
+.box .second {
+	box-sizing:content-box;
+	-moz-box-sizing:content-box;   /*Firefox*/
+	-webkit-box-sizing:content-box;  /*Ssfari*/
+	padding:20px;
+}
+.third{padding:20px;}
+</style>
+</head>
+<body>
+<div class="box">
+  <div><img src="image/horse.jpg" width="232" height="211"></div>
+</div>
+<div class="box">
+  <div class="first"><img src="image/horse.jpg" width="232" height="211"></div>
+</div>
+<div class="box">
+  <div class="second"><img src="image/horse.jpg" width="232" height="211"></div>
+</div>
+<div class="box">
+  <div class="third"><img src="image/horse.jpg" width="232" height="211"></div>
+</div>
+</body>
+</html>
