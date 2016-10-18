@@ -14,7 +14,7 @@ var htmlTemplate = function(){/*
 */};
 
 // extract html from comment
-var beginBrace = /function\s+\(\)\{\/\*/;
+var beginBrace = /function\s*?\(\s*?\)\{\/\*/;
 var endBrace = /\*\//;
 html = htmlTemplate.toString().replace(beginBrace, '').replace(endBrace, '');
 
