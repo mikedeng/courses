@@ -1,0 +1,17 @@
+.icon{
+	display: inline-block;
+	background: url('img/indexhead_sprite.png');
+	vertical-align: middle;
+}
+
+.icon-list-btn{
+    width: 14px;
+    height: 12px;
+    background-position: right -260px;
+}
+
+.icon-phone{
+	width: 11px;
+    height: 16px;
+    background: url(../img/indexhead_sprite.png) no-repeat -288px -230px;
+}

@@ -1,0 +1,25 @@
+*{ margin: 0; padding: 0 }
+body{ font-family: "Microsoft YaHei",SimHei,"微软雅黑","黑体"; font-size: 12px;}
+a{ text-decoration: none; color: rgb(0,0,0);}
+
+.nav:after{ content: ''; line-height: 0; height: 0; width: 0; display: block; clear: both; }
+
+.nav-top{ height: 50px; line-height: 50px; }
+.nav-top span{ display: block; width: 200px; background-color: rgb(0,153,102); color:rgb(255,255,255); padding: 0 20px; font-size: 16px; }
+
+.nav-list{ float: left; width: 240px;}
+.nav-item{ padding: 6px 20px; height: 50px; display: block; overflow: hidden; background: rgba(0,0,0, 0.5)}
+.nav-item:hover{  background: rgba(12,36,74,0.5) }
+.nav-item a{ color: rgb(255,255,255); }
+.nav-item h3{ font-size: 16px; font-weight: normal; }
+.nav-item h3 a{ opacity: 1; }
+.nav-item h3 a:hover{ opacity: 0.6; }
+.nav-item p { line-height: 20px; height: 20px; display: inline-block; overflow: hidden;}
+.nav-item p a{ opacity: 0.6; }
+.nav-item p a:hover{ opacity: 1; }
+
+.block-list { float: left; width: 470px; }
+.block-item { padding: 0 20px; border: 1px solid rgb(0,153,102); height: 370px; line-height: 25px; font-size: 14px; display: none;}
+.block-item h3{ font-size: 16px; margin: 20px 0;}
+.block-item h3 a{ color:rgb(0,153,102); }
+.block-item .cg-course a{ display: inline-block; margin-right: 15px; }

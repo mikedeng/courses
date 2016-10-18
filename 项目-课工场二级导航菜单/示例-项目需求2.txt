@@ -1,0 +1,29 @@
+function nav_switch(id){
+	var target = document.getElementById(id);
+	var navs = target.getElementsByClassName("nav-item");
+	var blocks = target.getElementsByClassName("block-item");
+
+	var findIndex = function(target, list){
+		for(var i=0; i<list.length; i++){
+			if(list[i] == target) return i;
+		}
+		return -1;
+	}
+
+	for(var i=0; i<navs.length; i++){
+		var nav = navs[i];
+
+		nav.addEventListener("mouseenter", function(evt){
+			var index = findIndex(evt.target, navs);
+			blocks[index].style.display = "block";
+		})
+
+		nav.addEventListener("mouseleave", function(evt){
+			var index = findIndex(evt.target, navs);
+			blocks[index].style.display = "none";	
+		})
+	}
+	
+}
+
+var a = new nav_switch("myNav");
