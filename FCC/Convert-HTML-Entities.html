@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	
+	function convertHTML(str) {
+	  var i, _item, arr, kv;
+	  
+	  kv = {'"': "&​quot;", "'": "&​apos;", "&": "&​amp;", "<": "&lt;", ">": "&gt;"};
+	  
+	  arr = str.split('');
+	  for(i = 0; i < arr.length; i++){
+	  	_item = arr[i];
+  		if(kv[_item]){
+  			arr[i] = kv[_item];
+  		}
+	  }
+
+	  return arr.join('');
+	}
+
+	console.log(convertHTML("Dolce & Gabbana"));
+
+</script>
+</body>
+</html>

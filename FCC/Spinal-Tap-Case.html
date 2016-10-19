@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">	
+	function replacer(match) {		
+		if(/[A-Z]/.test(match)){
+			return ' ' + match.toLowerCase();
+		}else if(/\S/.test(match)){
+			return ' ';
+		} 
+		
+		return match;
+	}
+
+	function spinalCase(str) {
+		var reg;
+		reg = /[\-_A-Z\s]/g;
+		return str.replace(reg, replacer).replace(/^\s/, '').replace(/\s+/g, '-');
+	}
+
+	console.log(spinalCase('The_Andy_Griffith_Show'));
+</script>
+</body>
+</html>
