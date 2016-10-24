@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		<script type="text/javascript">
+			function addTogether(){
+				var addNumber, first, second;
+
+				first  = arguments[0];
+				second = arguments[1];
+
+				if(arguments.length === 1){
+					if(typeof (first) !== 'number'){
+						return undefined;
+					}
+
+					return function(num2) { 
+						if(typeof(num2) !== 'number'){
+							return undefined;
+						}
+
+						return first + num2;
+					};
+				} else if(arguments.length === 2){
+					if(typeof(first) !== 'number' || typeof(second) !== 'number'){
+						return undefined;
+					}
+
+					return first + second;
+				} else{
+					throw "arguments length error!";
+				}
+			}
+			
+			var result = addTogether(2)(3);
+			console.log(result);
+	    </script>
+	</title>
+</head>
+<body>
+
+</body>
+</html>

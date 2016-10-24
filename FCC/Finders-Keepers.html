@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		<script type="text/javascript">			
+			function findElement(arr, func) {
+			  var i, len;
+
+			  for(i = 0, len = arr.length ; i < len; i++){
+			  	if(func(arr[i])){
+			  	  return arr[i];
+			  	}
+			  }
+			}
+
+			findElement([1, 2, 3, 4], function(num){ return num % 2 === 0; });
+		</script>
+	</title>
+</head>
+<body>
+
+</body>
+</html>

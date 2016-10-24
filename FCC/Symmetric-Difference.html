@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+
+	</title>
+</head>
+<body>
+		<script type="text/javascript">
+			function except(arr, intersect) {
+				var result, _item, _flag ;
+
+				result = [];
+				for(i = 0; i < arr.length; i++){
+					_item = arr[i];					
+
+					_flag = true;
+					Inner:
+					for (j = 0; j < intersect.length; j++) {
+						if(_item === intersect[j]){
+							_flag = false;
+							break Inner;
+						}
+					}
+
+					if(_flag){
+						result.push(_item);
+					}
+				}
+				return result;
+			}
+
+			function diff(arr, arr2) {
+				var i, j, _item, result, result2, intersect;
+
+				intersect = [];
+				for(i = 0; i < arr.length; i++){
+					_item = arr[i];
+
+					Inner:
+					for (j = 0; j < arr2.length; j++) {
+						if(_item === arr2[j]){
+							intersect.push(_item);							
+							break Inner;
+						}
+					}
+				}
+
+				result  = except(arr, intersect);
+				result2 = except(arr2, intersect);
+				result  = result.concat(result2);
+				return result;
+			}
+
+			function distinct(arr) {
+				var _item, i, j;
+				for (i = arr.length - 1; i > 0; i--) {
+					_item = arr[i];
+
+					for (j = i - 1; j >= 0; j--) {
+						if(_item === arr[j]) { arr.splice(i, 1); break; }
+					}
+				}
+
+				return arr;
+			}
+
+			function sym() {
+			  var len, _cur, _nxt, i, arr, result;
+			  
+			  arr = arguments;
+			  for (i = 0, len = arr.length - 1; i < len; i++) {			    
+			  	if(i === 0){
+			  		result = arr[0];
+			  	}
+
+			  	_nxt   = arr[i + 1];
+			  	result = distinct(result);
+			  	_nxt   = distinct(_nxt);
+			  	result = diff(result, _nxt);
+			  }
+
+			  return result;
+			}
+		
+
+			var result = sym([1, 1, 2, 5], [2, 2, 3, 5], [3, 4, 5, 5]);
+			console.log(result);
+
+	    </script>
+</body>
+</html>

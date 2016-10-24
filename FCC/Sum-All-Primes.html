@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	function sumPrimes(num){
+	  var cur, sum;  
+	  sum = 0;
+	  for(cur = 2; cur <= num; cur++){
+	  	 if(isPrime(cur)){ sum += cur; }
+	  }
+	  return sum;
+	}
+
+	function isPrime(num){
+		var cur;
+		for(cur = num - 1; cur > 1; cur--){
+			if(num % cur === 0){
+				return false;
+			}
+		}
+		return true;
+	}
+
+
+	//sumPrimes(10) should return 17.
+	//sumPrimes(977) should return 73156.
+</script>
+
+</body>
+</html>

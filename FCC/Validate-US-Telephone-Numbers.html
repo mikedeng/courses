@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		<script type="text/javascript">
+			function telephoneCheck(str){
+				var phoneReg = /^(1\s?)?(\d{3}|\(\d{3}\)){1}[\-\s]?(\d{3}){1}[\-\s]?(\d{4}){1}$/;
+				return phoneReg.test(str);
+			}			
+
+			// should return false
+			console.log("555-5555, " + telephoneCheck("555-5555"));
+			console.log("(6505552368), " + telephoneCheck("(6505552368)"));
+			console.log("1 555)555-5555, " + telephoneCheck("1 555)555-5555"));
+
+			// should return true
+			console.log("1(555)555-5555" + telephoneCheck("1(555)555-5555"));
+			console.log("555-555-5555, " + telephoneCheck("555-555-5555"));
+			console.log("5555555555, " + telephoneCheck("5555555555"));
+			console.log("555 555 5555, " + telephoneCheck("555 555 5555"));
+			console.log("1 555 555 5555, " + telephoneCheck("1 555 555 5555"));
+			console.log("(555)555-5555, " + telephoneCheck("(555)555-5555"));
+			console.log("(555) 555-5555, " + telephoneCheck("(555) 555-5555"));
+	    </script>
+	</title>
+</head>
+<body>
+
+</body>
+</html>

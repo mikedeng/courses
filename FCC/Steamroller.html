@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		<script type="text/javascript">
+			function steamrollArray(arr) {
+				var result = [];
+				return flatten(arr, result);
+			}
+
+			function flatten(item, result) {
+				var i;
+				if(item instanceof Array) {
+					for (i = 0; i < item.length; i++) {
+						flatten(item[i], result);
+					}
+				} else {
+					result.push(item);
+				}
+				return result;
+			}
+
+			var result = steamrollArray([1, [2], [3, [[4]]]]);
+			console.log(result);
+
+
+	    </script>
+	</title>
+</head>
+<body>
+
+</body>
+</html>

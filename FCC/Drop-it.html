@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		<script type="text/javascript">
+			function dropElements(arr, func){
+				var i, j, _item, result;
+
+				result = [];
+				for (i = 0; i < arr.length; i++) {
+					_item = arr[i];
+					if(func(_item)){ 
+						for(j = i; j < arr.length; j++){
+							result.push(arr[j]);
+						}
+
+						break;
+					}
+				}
+				return result;
+			}
+	    </script>
+	</title>
+</head>
+<body>
+
+</body>
+</html>

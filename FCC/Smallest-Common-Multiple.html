@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+	</title>
+</head>
+<body>
+<script type="text/javascript">
+	function smallestCommons(arr) {
+	   var start, end, smallStart, i;
+	   if(arr[0] > arr[1]){
+		   	start = arr[1];
+		   	end   = arr[0];
+	   }else{
+		   	start = arr[0];
+		   	end   = arr[1];
+	   }
+
+	   smallStart = getSmallestCommonMultiple(start, end);
+	   for(i = start + 1; i < end; i++){
+	   	  if(smallStart % i !== 0){
+			smallStart = getSmallestCommonMultiple(i, smallStart);
+	   	  }
+	   }
+
+	   return smallStart;
+	}
+
+	function getSmallestCommonMultiple(start, end){
+		var i;
+		for(i = start - 1; i > 1; i--){
+			if(start % i === 0 && end % i === 0){ 
+				return i * (start / i) * (end / i);
+			}
+		}
+
+		return start * end;
+	}
+
+	smallestCommons([1, 13]);	
+</script>
+
+</body>
+</html>
