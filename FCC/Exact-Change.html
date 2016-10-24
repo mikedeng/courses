@@ -7,20 +7,15 @@
   <body>
     <script type="text/javascript">
         function checkCashRegister(price, cash, cid) {
-          var change, i, result, divisor,
-            _remain_type, _remain_amt, _remain_total, _remain_cnt, _unit;
+          var change, i, result, _minus_cnt,
+            _remain_type, _remain_amt, _remain_total, _remain_cnt, _unit, _item_pay;
           change = cash - price;
           _remain_total = 0;
-
-          if(change === 0){
-            return "Closed";
-          }
-
+   
           result = [];
-          for (i = cid.length - 1; i >= 0 && change > 0; i--) {
+          for (i = cid.length - 1; i >= 0; i--) {
              _remain_type    = cid[i][0];
              _remain_amt     = cid[i][1];
-             _remain_total  += _remain_amt;
 
                if (_remain_type === "ONE HUNDRED"){
                   _unit = 100;
@@ -49,22 +44,46 @@
                if (_remain_type === "PENNY"){
                   _unit = 0.01;
                }
+              
+               if(change >= _remain_amt){
+                  _item_pay = _remain_amt;
+                  change   -= _item_pay;
+                  cid[i][1] = 0;
+                  console.log('1: ' + _remain_type);
+               } else {
+                  if(change < _unit){
+                    continue;
+                  }else{
+                    var to_minus_cnt = parseInt(change / _unit);
+                    var remain_cnt = parseInt(_remain_amt / _unit);
+                    if(to_minus_cnt > remain_cnt){
+                      _item_pay = remain_cnt * _unit;
+                    }else{
+                      _item_pay = to_minus_cnt * _unit;
+                    }
 
-               divisor = parseInt(change / _unit);
-               if(divisor > 0){                
-                 result.push([_remain_type, divisor * _unit]);                
-                 change -= divisor * _unit;
+                    change   -= _item_pay;
+                    cid[i][1] = _remain_amt - _item_pay;
+                    _remain_total += (_remain_amt - _item_pay);                    
+                    console.log('2: ' + _remain_type + ',' +change);
+                  }
                }
+
+               if (_item_pay > 0){ result.push([_remain_type, _item_pay]); }
+                          
           }
 
-          if( _remain_total < change ){
+          if((_remain_total === 0 && change > 0) || (change - _remain_total > 0)){
             return "Insufficient Funds";
-          }
-
-          return result;
+          } else if( _remain_total === 0 ){
+            return "Closed";
+          } else{
+            return result;  
+          }          
         }
 
-        checkCashRegister(19.50, 20.00, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.10], ["QUARTER", 4.25], ["ONE", 90.00], ["FIVE", 55.00], ["TEN", 20.00], ["TWENTY", 60.00], ["ONE HUNDRED", 100.00]]);
+        var rr = checkCashRegister(3.26, 100.00, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.10], ["QUARTER", 4.25], ["ONE", 90.00], ["FIVE", 55.00], ["TEN", 20.00], ["TWENTY", 60.00], ["ONE HUNDRED", 100.00]])
+        console.log(rr);
 
     </script>
 

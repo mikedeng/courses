@@ -165,32 +165,112 @@ li.liMenu{
 
 .leftPanel{
 	position: relative;
-	width: 180px;
+	width: 220px;
 }
 
 .leftPanel .firstDir{
 	position: absolute;
 	left: 0;
 	top: 0;
-	height: 30px;
-	width: 180px;
+	height: 34px;
+	line-height: 34px;
+	width: 220px;	
+
+	font-size: 16px;
+	font-weight: bolder;
+	background-color: red;
+	color: white;
+	width: 220px;
+}
+.firstDir a{
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	color: white;
+	font-size: 14px;
+	font-family: 'Microsoft Yahei';
 }
 
 .leftPanel .dirs{
 	position: absolute;
 	left: 0;
-	top: 30px;
-	width: 180px;	
+	top: 34px;
+	width: 220px;	
 }
 
-.dir ul{
+.dirs ul{
+	margin-top: 0;
 	margin-left: 0;
-	padding-left: 0;
+	padding-left: 0;	
 }
 
-.dir ul li{
-	height: 30px;
-	line-height: 30px;
+.dirs ul li{
+	background-color: #c23131;
+}
+
+.item_grp{
+	height: 32px;
+	line-height: 32px;
 	margin: 0;
-	left: 0;
+	padding: 0 0 0 10px;
+	left: 0;	
+	color: #fff;
+}
+
+.item_grp a{
+	color: #fff;
+	font-size: 12px;
+	font-weight: normal;
+    font-color: #fff;
+}
+
+.item_grp .hd_icon{
+	display: inline-block;
+	height: 32px;
+	line-height: 32px;
+	width: 32px;
+	vertical-align: middle;
+	background: url('img/nav.png') no-repeat 0 5px;
+}
+
+.item_grp .tail_icon{
+	display: inline-block;
+	height: 32px;
+	line-height: 32px;
+	width: 32px;
+	vertical-align: middle;
+	background: url('img/indexhead_sprite.png') no-repeat  20px -1150px;
+}
+
+.rightPanel{
+	display: block;
+	width: 840px;
+	height: 34px;
+	float: left;
+	margin-left: 220px;
+}
+
+.rightPanel ul{
+	margin-top: 0;
+	padding-left: 10px;
+}
+
+.rightPanel ul li{
+	float: left;
+	display: list-item;
+	height: 34px;
+	width: 58px;
+	margin: 0 5px;
+	line-height: 34px;
+}
+
+.rightPanel ul li a{
+	display: block;
+	float: left;
+	height: 34px;
+	line-height: 34px;
+	width: 60px;
+	text-align: center;
+	font-size: 14px;
+	font-weight: bolder;	
 }
