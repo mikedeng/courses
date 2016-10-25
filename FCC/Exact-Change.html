@@ -7,70 +7,44 @@
   <body>
     <script type="text/javascript">
         function checkCashRegister(price, cash, cid) {
-          var change, i, result, _minus_cnt,
-            _remain_type, _remain_amt, _remain_total, _remain_cnt, _unit, _item_pay;
-          change = cash - price;
+          var change, i, result, hs,
+            _remain_type, _remain_amt, _remain_total, _unit, _item_pay;
+
+          hs            = {"ONE HUNDRED": 100, "TWENTY": 20, "TEN": 10,  "FIVE": 5, "ONE": 1, "QUARTER": 0.25, "DIME": 0.1, "NICKEL": 0.05, "PENNY": 0.01}
+          change        = cash - price;
           _remain_total = 0;
-   
+          
           result = [];
           for (i = cid.length - 1; i >= 0; i--) {
-             _remain_type    = cid[i][0];
-             _remain_amt     = cid[i][1];
-
-               if (_remain_type === "ONE HUNDRED"){
-                  _unit = 100;
-               }
-               if (_remain_type === "TWENTY"){
-                  _unit = 20;
-               }
-               if (_remain_type === "TEN"){
-                  _unit = 10;
-               }
-               if (_remain_type === "FIVE"){
-                  _unit = 5;
-               }
-               if (_remain_type === "ONE"){
-                  _unit = 1;
-               }
-               if (_remain_type === "QUARTER"){
-                  _unit = 0.25;
-               }
-               if (_remain_type === "DIME"){
-                  _unit = 0.1;
-               }
-               if (_remain_type === "NICKEL"){
-                  _unit = 0.05;
-               }
-               if (_remain_type === "PENNY"){
-                  _unit = 0.01;
-               }
-              
+             _remain_type = cid[i][0];
+             _remain_amt  = cid[i][1];
+             _unit        = hs[_remain_type];
                if(change >= _remain_amt){
                   _item_pay = _remain_amt;
-                  change   -= _item_pay;
+                  change    = ((change * 100) - (_item_pay * 100)) * 0.01;
                   cid[i][1] = 0;
-                  console.log('1: ' + _remain_type);
                } else {
                   if(change < _unit){
                     continue;
                   }else{
                     var to_minus_cnt = parseInt(change / _unit);
-                    var remain_cnt = parseInt(_remain_amt / _unit);
+                    var remain_cnt   = parseInt(_remain_amt / _unit);
+
                     if(to_minus_cnt > remain_cnt){
                       _item_pay = remain_cnt * _unit;
                     }else{
                       _item_pay = to_minus_cnt * _unit;
                     }
 
-                    change   -= _item_pay;
-                    cid[i][1] = _remain_amt - _item_pay;
-                    _remain_total += (_remain_amt - _item_pay);                    
-                    console.log('2: ' + _remain_type + ',' +change);
+                    change          = ((change * 100) - (_item_pay * 100)) * 0.01;
+                    cid[i][1]       = _remain_amt - _item_pay;
+                    _remain_total  += (_remain_amt - _item_pay);
                   }
                }
 
-               if (_item_pay > 0){ result.push([_remain_type, _item_pay]); }
-                          
+               if (_item_pay > 0){                
+                result.push([_remain_type, _item_pay]); 
+               }
           }
 
           if((_remain_total === 0 && change > 0) || (change - _remain_total > 0)){
