@@ -1,45 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>		
+	<title>
 	</title>
 </head>
 <body>
 	<script type="text/javascript">
-		// function name(arguments){
-		// 	var i;
-		// }
 		function permAlone(str) {
-		  var arr, all_indexes, _indexes, i, _item, _possible_items, outer, inn;
+		  var arr, all_indexes, _indexes, i, j, m, _item, _possible_items, outer, inn;
 		  arr = str.split('');
-
 
 		  _possible_items = [];
 		  all_indexes = get_all_indexes(arr.length);
+
 		  for(i = 0; i < all_indexes.length; i++){
 		    _indexes = all_indexes[i];
 
 		    _item =  '';
 		    for(j = 0; j < _indexes.length; j++){
-				_item += arr[j];
+					_item += arr[_indexes[j]];
 		    }
 
 		    _possible_items.push(_item);
 		  }
 
-		  console.log(_possible_items);
-
 		  // clean me
-		  for(i = _possible_items.length - 1; i > 0; i--){
-		  	outer = _possible_items[i];
-		  	for(j = i - 1; j >= 0; j--){
-		  		inn = _possible_items[j];					
-		  		if(outer == inn){
-		  			_possible_items.splice(i, 1);
-		  			break;
-		  		}
-		  	}
-		  }
+		  // for(i = _possible_items.length - 1; i > 0; i--){
+		  // 	outer = _possible_items[i];
+			// 	for(j = i - 1; j >= 0; j--){
+		  // 		inn = _possible_items[j];
+		  // 		if(outer == inn){
+		  // 			_possible_items.splice(i, 1);
+		  // 		}
+		  // 	}
+		  // }
+
+
+			console.log(_possible_items);
+			// clean me
+			for(i = _possible_items.length - 1; i >= 0; i--){
+				outer = _possible_items[i];
+				outer = outer.split('');
+				for(j = outer.length - 1; j > 0; j--){
+					if(outer[j] === outer[j - 1]){
+						_possible_items.splice(i, 1);
+						break;
+					}
+				}
+			}
 
 		  return _possible_items.length;
 		}
@@ -47,8 +55,8 @@
 		function get_all_indexes(len) {
 			var i, all_indexes;
 
-			all_indexes = [];			
-			for (i = len - 1; i >= 0; i--) {
+			all_indexes = [];
+			for (i = 0; i < len; i++) {
 				all_indexes.push(i);
 			}
 			return g_all_indices(all_indexes);
@@ -61,10 +69,10 @@
 			result   = [];
 			for (i = 0, len = arr.length - 1; i < len; i++) {
 				firt_lvl.push(g_part_indices(arr.slice(), i));
-			}			
+			}
 
 			for (i = 0; i < firt_lvl.length; i++) {
-				_first_lvl = firt_lvl[i]
+				_first_lvl = firt_lvl[i];
 				for (j = 0; j < firt_lvl[i].length; j++) {
 				  result.push(_first_lvl[j]);
 				}
@@ -74,8 +82,8 @@
 			for(i = result.length - 1; i > 0; i--){
 				outer = result[i].join(',');
 				for(j = i - 1; j >= 0; j--){
-					inn = result[j].join(',');					
-					if(outer == inn){						
+					inn = result[j].join(',');
+					if(outer == inn){
 						result.splice(i, 1);
 						break;
 					}
@@ -101,7 +109,8 @@
 			return result;
 		}
 
-		permAlone('aab');
+	 var len =	permAlone('aabb');
+	 console.log(len);
     </script>
 
 </body>
