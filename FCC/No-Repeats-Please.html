@@ -7,11 +7,21 @@
 <body>
 	<script type="text/javascript">
 		function permAlone(str) {
-		  var arr, all_indexes, _indexes, i, j, m, _item, _possible_items, outer, inn;
+		  var arr, chars, all_indexes, _indexes, i, j, m, _item, _possible_items, outer, inn;
 		  arr = str.split('');
+
+
+			chars = [];
+			for(i = 0; i < arr.length; i++){
+				if(arr[i] === arr[i + 1] && chars.indexOf(arr[i]) < 0){
+					 chars.push(arr[i]);
+				}
+			}
 
 		  _possible_items = [];
 		  all_indexes = get_all_indexes(arr.length);
+
+			console.log(all_indexes.length);
 
 		  for(i = 0; i < all_indexes.length; i++){
 		    _indexes = all_indexes[i];
@@ -42,7 +52,7 @@
 				outer = _possible_items[i];
 				outer = outer.split('');
 				for(j = outer.length - 1; j > 0; j--){
-					if(outer[j] === outer[j - 1]){
+					if(outer[j] === outer[j - 1] && chars.indexOf(outer[j]) >= 0){
 						_possible_items.splice(i, 1);
 						break;
 					}
