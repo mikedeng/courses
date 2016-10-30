@@ -9,7 +9,6 @@ a:hover{ color: red; }
 .left{ 	float: left; }
 .right{ float: right; }
 .clear{clear: both;}
-#header, #content, #bottom{ }
 #header{ margin-left: 70px;}
 #navTop{ border-top: 1px solid #dbdbdb; height: 30px; line-height: 30px; }
 #navTopRight{ position: relative; font-size: 0; }
@@ -202,6 +201,7 @@ li.liMenu{
 	left: 0;
 	top: 34px;
 	width: 220px;	
+	z-index: 100;
 }
 
 .dirs ul{
@@ -287,6 +287,7 @@ li.liMenu{
 
 .banner-box{
 	width: 100%;
+	position: relative;
 }
 
 ul.slide{
@@ -303,4 +304,240 @@ ul.slide{
 
 .sliding-box .slide img{
 	vertical-align: bottom;
+}
+.wrap{
+	width: 1200px;
+	margin: 0 auto;
+}
+.banner-r{
+	position: absolute;
+	left: 50%;
+	top: 0;
+	margin-left: -600px;
+}
+
+.banner-r-con{
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 240px;
+	height: 384px;
+	background-color: white;
+}
+
+.banner-r-top{	
+	height: 81px;
+	width: 100%;
+	margin: 0;
+	padding-top: 10px;
+	text-align: center;	
+	border-bottom: 1px solid #eee;
+}
+
+.banner-r-top a{
+	display: inline-block;
+	margin:8px;
+}
+
+
+.banner-r-list{
+	margin: 0;
+	padding: 8px 15px;
+	border-bottom: 1px solid #eee;
+}
+
+.banner-r-list li{
+	height: 22px;
+	line-height: 22px;
+}
+
+.banner-r-btm h2{
+	text-align: center;
+	font-size: 13px;
+	font-weight: normal;
+	background-color: #eee;
+	height: 31px;
+	line-height: 31px;
+	float: left;
+	margin: 0;
+	padding: 0;
+	display: block;
+}
+
+.banner-r-btm a{
+	display: inline-block;
+	width: 78px;
+	float: left;
+	padding: 0;
+	border: 1px solid #eee;
+	height: 30px;
+	line-height: 30px;
+}
+
+.banner-r-btm .cur{
+	background-color: white;
+	border-top: 1px solid #eee;
+	border-bottom: 0;
+}
+
+.banner-r-btm .content{
+	padding-top: 40px;
+	padding-left: 30px;
+}
+
+.content p label{
+	width: 65px;
+	float: left;
+	text-align: right;
+}
+
+.content input{
+	width: 113px;
+}
+
+.content select{
+	width: 117px;
+}
+
+.content span{
+	color: red;
+}
+
+.content button{
+	color: white;
+	background-color: red;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	width: 80px;
+	height: 30px;
+	margin-top: 8px;
+}
+
+.sec1{
+	margin-top: 30px;
+}
+
+.common{
+	float: left;	
+	border-bottom: 1px solid #eee;
+}
+
+h2{	
+	margin: 0;
+	padding: 0;
+	height: 33px;
+	line-height: 33px;
+	width: 100%;
+}
+
+h2.eat{
+	border-bottom: 2px red solid;
+}
+
+h2.eat .title{
+	font-weight: normal;
+	color: red;
+	margin-bottom: 5px;
+}
+
+
+.a-con, .f-con{
+	width: 209px;	
+}
+
+.a-con{
+	height: 360px;
+}
+
+.f-con{
+	height: 189px;
+}
+
+.a-con-top{
+	padding: 10px 10px 0;
+}
+
+.a-con-top a{
+	float: left;
+	width: 80px;
+	height: 32px;
+	line-height: 32px;
+	border-bottom: 1px #eee dashed;
+}
+
+
+p.right{
+	margin: 0 10px;
+	font-weight: normal;
+	padding-bottom: 5px;
+	margin-bottom: 5px;	
+	font-size: 12px;
+}
+
+.right a{
+	font-size: 12px;
+	font-weight: normal;
+	color: #666;
+	margin: 5px;
+}
+
+.top-a{
+	display: block;
+	text-align: center;
+}
+
+.b-con, .g-con{
+	width: 329px;	
+}
+
+.b-con{
+	height: 360px;
+}
+
+.g-con{
+	height: 189px;
+}
+
+.c-con, .h-con{
+	width: 219px;
+}
+
+.h-con{
+	height: 189px;
+}
+
+.c-con{
+	height: 360px;
+}
+
+.d-con,.i-con{
+	width: 219px;
+}
+
+.d-con{
+	height: 360px;
+}
+
+.e-con{
+	width: 220px;
+	height: 360px;	
+}
+
+.j-con{
+	margin-top: -179px;	
+}
+
+.border-rno{
+	border-right: 0 none;
+}
+
+h2.cur{
+	color: #a7d22d;
+	font-weight: normal;	
+	margin-bottom: 5px;
+	border-bottom: 2px #a7d22d solid;
+}
+h2.cur .title{
+	color: #a7d22d;
 }
