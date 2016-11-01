@@ -293,33 +293,41 @@ $.fn.make2048 = function (options) {
 	};
 
 	generateBlock = function(direction){
-		var _x, _y;
+		var _x, _y, _lvl;
+		_lvl = Math.floor(Math.random() * 2);
 		switch(direction){
 			case 'up': {
-				// for(_x = 0; _x < options.width; _x ++){
-				// 	for (_y = options.height - 2; _y >= 0; _y --) {
-				// 		moveStep(direction, state, _x, _y);
-				// 	}
-				// }
-
 				OUTER:
-				for (_y = options.height - 1; _y >= 0; _y--) {
-					while(!buildBlock(0, Math.floor(Math.random() * options.width), _y)){
-						if(_y == 0){
-							break OUTER;
-						}
+				for (_y = options.height - 1; _y >= 0; _y--) {					
+					while(buildBlock(_lvl, Math.floor(Math.random() * options.width), _y)){						
+						break OUTER;
 					}
 				}
 				break;
 			} break;
 			case 'down': {
-
+				OUTER:
+				for (_y = 0; _y < options.height; _y++) {					
+					while(buildBlock(_lvl, Math.floor(Math.random() * options.width), _y)){						
+						break OUTER;
+					}
+				}
 			} break;
 			case 'left': {
-
+				OUTER:
+				for (_x = options.width - 1; _x >= 0; _x--) {
+					while(buildBlock(_lvl, _x , Math.floor(Math.random() * options.height))){
+						break OUTER;
+					}
+				}
 			} break;
 			case 'right': {
-
+				OUTER:
+				for (_x = 0; _x < options.width; _x++) {
+					while(buildBlock(_lvl, _x , Math.floor(Math.random() * options.height))){
+						break OUTER;
+					}
+				}
 			} break;
 		}
 	};
@@ -332,5 +340,5 @@ $.fn.make2048 = function (options) {
 	buildBlock(1, 0, 3);
 
 	
-	setTimeout(function(){ move('up');generateBlock('up'); }, 1000);
+	setTimeout(function(){ move('right');generateBlock('right'); }, 1000);
 }
